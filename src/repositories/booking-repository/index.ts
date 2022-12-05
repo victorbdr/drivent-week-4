@@ -7,13 +7,6 @@ async function findBookings(userId: number) {
     include: { Room: true },
   });
 }
-async function bookingById(bookingId: number) {
-  return prisma.booking.findFirst({
-    where: {
-      id: bookingId,
-    },
-  });
-}
 
 async function createBooking(userId: number, roomId: number) {
   return prisma.booking.create({
@@ -51,8 +44,6 @@ const bookingRepository = {
   createBooking,
   bookingProcessment,
   findRooms,
-
-  bookingById,
 };
 
 export default bookingRepository;
